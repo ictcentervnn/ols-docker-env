@@ -188,6 +188,15 @@ RUN apt-get update && apt-get install lsphp80-pspell -y
 ```
 docker compose up --build
 ```
+4. Edit php.ini
+```
+sudo docker-compose exec litespeed su -c 'mv /usr/local/lsws/lsphp81/etc/php/8.1/litespeed/php.ini /usr/local/lsws/conf'
+sudo nano lsws/conf/php.ini
+
+
+sudo docker-compose exec litespeed su -c 'mv /usr/local/lsws/conf/php.ini /usr/local/lsws/lsphp81/etc/php/8.1/litespeed/php.ini'
+sudo docker-compose exec litespeed su -c 'pkill lsphp'
+```
 
 ## Support & Feedback
 If you still have a question after using OpenLiteSpeed Docker, you have a few options.
